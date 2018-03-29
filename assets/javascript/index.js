@@ -71,7 +71,7 @@ $("#save-city").on("click", function (event) {
 
     var eventAPIKey = "8K4g8J4q2z2RFfZf";
 
-    var eventURL = "http://api.eventful.com/rest/events/search?...&date=today&page_size=10&l=" + userCity + "&within=" + radius + "&units=miles&api_key=" + eventAPIKey;
+    var eventURL = "https://api.eventful.com/rest/events/search?...&date=today&page_size=10&l=" + userCity + "&within=" + radius + "&units=miles&api_key=" + eventAPIKey;
 
 
     // Here we run our AJAX call to the Eventful API
