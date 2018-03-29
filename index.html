@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RPS Multiplayer Game</title>
+  <!-- styles -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"> -->
+  <!-- firebase js -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script> -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+
+
+<body>
+  <!-- Retrieved data will be dumped here -->
+  <div class="container text-center">
+    
+     <form role="form" class="form-inline">
+
+              <!-- Here we create the text box for capturing the search term-->
+              <div class="form-group">
+                <label for="your-city"></label>
+                <input class="form-control text-center" id="your-city" type="text" placeholder="Your City">
+              </div>
+       
+<!-- Here we capture the number of records that the user wants to retrieve  -->
+       <div class="form-group">
+                <label style="color: #fff;" for="radius">Within (mi)</label>
+                <select class="form-control" id="radius">
+                  <option value="5">5</option>
+                  <!-- Setting the option for 5 as default -->
+                  <option value="10" selected>10</option>
+                  <option value="20">20</option>  
+                </select>
+              </div>
+              
+              
+       <button class="btn btn-primary" id="save-city" value="Save" type="submit">Submit</button>
+    </form>
+    
+<!--     <form>
+      <span id="input-city">
+        <input id="your-city" type="text" placeholder="Your City">
+        <button class="btn btn-default" id="save-city" value="Save" type="submit">Submit</button>
+      </span>
+    </form> -->
+    
+    <div id="weatherInfo" class="jumbotron">
+
+    </div>
+    
+    <!-- This row will handle all of the retrieved articles -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+
+        <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+        <div class="panel panel-primary">
+
+          <!-- Panel Heading for the retrieved articles box -->
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <strong>
+                <i class="fa fa-table"></i> Today's Events</strong>
+            </h3>
+          </div>
+
+          <!-- This main panel will hold each of the resulting articles -->
+          <div class="panel-body" id="well-section">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Region -->
+    <div class="row">
+      <div class="col-sm-12">
+
+        <!-- Line Break followed by closing -->
+        <hr>
+        <h5 class="text-center">
+          <small>Made with lots and lots of
+            <i class="fa fa-heart"> by Group3</i>
+          </small>
+        </h5>
+
+      </div>
+    </div>
+    
+    
+  </div>
+  
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./assets/javascript/index.js"></script>
+
+</body>
+
+</html>
