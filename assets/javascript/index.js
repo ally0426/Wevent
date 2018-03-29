@@ -71,19 +71,19 @@ $("#save-city").on("click", function (event) {
 
     var eventAPIKey = "8K4g8J4q2z2RFfZf";
 
-    var eventsURL = "http://api.eventful.com/rest/events/search?...&date=today&page_size=10&location=" + userCity + "&within=" + radius + "&api_key=" + eventAPIKey;
+    var eventURL = "http://api.eventful.com/rest/events/search?...&date=today&page_size=10&l=" + userCity + "&within=" + radius + "&units=miles&api_key=" + eventAPIKey;
 
 
     // Here we run our AJAX call to the Eventful API
     $.ajax({
-        url: eventsURL,
+        url: eventURL,
         method: "GET"
     })
         // We store all of the retrieved data inside of an object called "response"
         .then(function (response) {
 
             // Log the queryURL
-            console.log("eventsURL: " + eventsURL);
+            console.log("eventsURL: " + eventURL);
 
             // Log the resulting object
             console.log(response);
