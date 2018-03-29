@@ -57,7 +57,7 @@ $("#save-city").on("click", function (event) {
             // And display that city for the user using "localStorage.getItem"
             // $(".jumbotron").text(localStorage.getItem("city"));
 
-            $(".jumbotron").html("<h1>" + response.name + "</h1><h3>Temperature (F): " + Math.round(response.main.temp) + "</h3><h3>Humidity (%): " + response.main.humidity + "</h3><h3>Wind Speed (m/s): " + Math.round(response.wind.speed) + "</h3><h3>Condition: " + response.weather[0].description + "</h3><h1><img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'></h1>");
+            $(".jumbotron").html("<h1>" + response.name + "</h1><br><h3>Temperature (F): " + Math.round(response.main.temp) + "</h3><h3>Humidity (%): " + response.main.humidity + "</h3><h3>Wind Speed (m/s): " + Math.round(response.wind.speed) + "</h3><h3>Condition: " + response.weather[0].description + "</h3><h1><img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'></h1>");
 
 
             // Log the data in the console as well
@@ -88,7 +88,7 @@ $("#save-city").on("click", function (event) {
             // Log the resulting object
             console.log(response);
 
-            $("#well-section").html("<h1>" + response.events.title + "</h1><h3>" + response.events.description + "</h3><h3>By " + response.events.venue_name + "</h3><h3>" + response.events.start_time + "</h3><h3> ~ " + response.events.stop_time + "</h3><h4>" + response.events.url);
+            $("#well-section").html("<h1>" + response.events.title + "</h1><br><h3>" + response.events.description + "</h3><h3>By " + response.events.venue_name + "</h3><h3>" + response.events.start_time + "</h3><h3> ~ " + response.events.stop_time + "</h3><h4>" + response.events.url);
 
             //       // Log the data in the console as well
             console.log("Title: " + response.events.title);
