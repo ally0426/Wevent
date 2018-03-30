@@ -103,7 +103,7 @@ console.log("Icon_Number: " + response.weather[0].icon);
 
 var eventAPIKey = "8K4g8J4q2z2RFfZf";
 
-var eventsURL = "http://api.eventful.com/rest/events/search?...&date=today&page_size=10&location=" + userCity + "&within=" + radius + "&api_key=" + eventAPIKey;
+var eventsURL = "http://api.eventful.com/json/events/search?date=today&page_size=10&location=" + userCity + "&within=" + radius + "&api_key=" + eventAPIKey;
 
 
 // Here we run our AJAX call to the Eventful API
