@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- handle insecure xmlhttprequest endpoint issue by using http instead of https -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Wevent: Weather And Event</title>
     <!-- styles -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"> -->
@@ -15,6 +15,8 @@
     <!-- <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script> -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--   Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lemon" rel="stylesheet">
     <!-- Font Awesome CSS Icons (For cool glyphicons) -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
@@ -22,16 +24,99 @@
 </head>
 
 
-<body>
-    <!-- Retrieved data will be dumped here -->
+<body class="demo">
+
     <div class="container text-center">
+
+        <!------------- Navbar -------------->
+        <nav class="navbar navbar-inverse bs-dark">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explores
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Festivals</a>
+                            </li>
+                            <li>
+                                <a href="#">Concerts</a>
+                            </li>
+                            <li>
+                                <a href="#">Museums</a>
+                            </li>
+                            <li>
+                                <a href="#">Conferences</a>
+                            </li>
+                            <li>
+                                <a href="#">Parties</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left form-horizontal" role="search">
+                    <div class="input-group">
+                        <input type="text" class="search-box" placeholder="Search">
+                        <button type="submit" class="btn">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Account
+                            <img src="http://placehold.it/150x150" class="img-circle" alt="Profile Image" />
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Profile</a>
+                            </li>
+                            <li>
+                                <a href="#">Inbox</a>
+                            </li>
+                            <li>
+                                <a href="#">Followers</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="#">Settings</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <h1 style="color: #fff;">
+            <strong>Events</strong>
+        </h1>
+
+        <!-- Retrieved data will be dumped here -->
 
         <form role="form" class="form-inline">
 
             <!-- Here we create the text box for capturing the search term-->
             <div class="form-group">
                 <label for="your-city"></label>
-                <input class="form-control text-center" id="your-city" type="text" placeholder="Your City">
+                <input class="form-control text-center" id="your-city" type="text" placeholder="" value="">
             </div>
 
             <!-- Here we capture the number of records that the user wants to retrieve  -->
@@ -50,21 +135,15 @@
         </form>
 
         <!--     <form>
-      <span id="input-city">
-        <input id="your-city" type="text" placeholder="Your City">
-        <button class="btn btn-default" id="save-city" value="Save" type="submit">Submit</button>
-      </span>
-    </form> -->
+        <span id="input-city">
+          <input id="your-city" type="text" placeholder="Your City">
+          <button class="btn btn-default" id="save-city" value="Save" type="submit">Submit</button>
+        </span>
+      </form> -->
 
+        <div id="weatherInfo" class="jumbotron">
 
-        <div class="row">
-            <div class="col-sm-12 col-sm-offset-3">
-                <div id="weatherInfo" class="jumbotron">
-
-                </div>
-            </div>
         </div>
-
 
         <!-- This row will handle all of the retrieved articles -->
         <div class="row">
@@ -76,10 +155,10 @@
 
                     <!-- Panel Heading for the retrieved articles box -->
                     <div class="panel-heading">
-                        <h3 class="panel-title">
+                        <h2 class="panel-title">
                             <strong>
-                                <i class="fa fa-calendar"></i> Today's Events</strong>
-                        </h3>
+                                <i class="fa fa-table"></i> Today's Events</strong>
+                        </h2>
                     </div>
 
                     <!-- This main panel will hold each of the resulting articles -->
@@ -95,17 +174,120 @@
 
                 <!-- Line Break followed by closing -->
                 <hr>
-                <h5 class="text-center" style="color: #fff;">
-                    <small>Made with lots and lots of
-                        <i class="fa fa-heart"> by Group3</i>
-                    </small>
-                </h5>
+
+                <!--         <h5 class="text-center">
+            <small>Made with lots of 
+              <i class="fa fa-heart"> by Group 3</i>
+            </small>
+          </h5>
+   -->
+
+
+
+
 
             </div>
         </div>
 
+        <!----------- Footer ------------>
+        <footer class="footer-bs">
+            <div class="row">
+                <div class="col-md-3 footer-brand animated fadeInLeft">
+                    <h3>Logo</h3>
+                    <br>
+                    <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur
+                        vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+                    <p>© 2017 Group 3. All rights reserved</p>
+                </div>
+                <div class="col-md-4 footer-nav animated fadeInUp">
+                    <h3>Menu</h3>
+                    <br>
+                    <div class="col-md-6">
+                        <ul class="pages">
+                            <li>
+                                <a href="#">Festivals</a>
+                            </li>
+                            <li>
+                                <a href="#">Concerts</a>
+                            </li>
+                            <li>
+                                <a href="#">Museums</a>
+                            </li>
+                            <li>
+                                <a href="#">Conferences</a>
+                            </li>
+                            <li>
+                                <a href="#">Parties</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list">
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                            <li>
+                                <a href="#">Terms & Condition</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 footer-social animated fadeInDown">
+                    <h3>Follow Us</h3>
+                    <br>
+                    <ul>
+                        <li>
+                            <a href="#">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="#">Twitter</a>
+                        </li>
+                        <li>
+                            <a href="#">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="#">RSS</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-ns animated fadeInRight">
+                    <h3>Newsletter</h3>
+                    <h6>Get the latest news!</h6>
+                    <br>
+                    <p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Your email address">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <section style="text-align:center; margin:10px auto;">
+            <p style="color: #fff;">Designed by Group 3</p>
+        </section>
+
+
+
 
     </div>
+
+
+
+    </div>
+
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -114,5 +296,6 @@
     <script src="./assets/javascript/index.js"></script>
 
 </body>
+
 
 </html>

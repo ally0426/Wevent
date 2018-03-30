@@ -1,104 +1,136 @@
+// $('.demo').fireworks({
+//   sound: true, // sound effect
+//   opacity: 0.9,
+//   width: '100%',
+//   height: '100%'
+// });
+
+// $("body").animate({opacity: 0}, 3000, function(){
+//     $(this).css({'background-image': "url('https://i1.wp.com/captiontool.com/wp-content/uploads/2018/02/Captions-For-Event.jpg?resize=768%2C341&ssl=1')"})
+//                .animate({opacity: 1},{duration: 3000});
+//  });
+
+	
+$.ajax({
+    url: "https://geoip-db.com/jsonp",
+    jsonpCallback: "callback",
+    dataType: "jsonp",
+    success: function( location ) {
+       
+        $('#your-city').val(location.city);
+        console.log("location.city: " + location.city);
+    }
+});     
+
+
+
+var userCity ="";
+
+$("#your-city").on("click", function() {
+$("#your-city").val("");
+});
 
 // By default (upon load) show the name stored in localStorage using "localStorage.getItem"
 // $(".jumbotron").text(localStorage.getItem("city"));
 
 // When users click "save-name"
-$("#save-city").on("click", function (event) {
-    // This line prevents the page from refreshing when a user hits "enter".
-    event.preventDefault();
-
-    // Clear the HTML from the jumbotron
-    $(".jumbotron").html("");
-
-    // Grab the user input
-    var userCity = $("#your-city").val().trim();
-    var radius = $("#radius").val().trim();
+$("#save-city").on("click", function(event) {
+// This line prevents the page from refreshing when a user hits "enter".
+event.preventDefault();
 
 
-    // initialize the input values
-    $("#your-city").val("");
-    $("#radius").val("10");
+// Clear the HTML from the jumbotron
+$(".jumbotron").html("");
 
-    // This is our API key
-    var weatherAPIKey = "166a433c57516f51dfab1f7edaed8413";
-
-    // Here we are building the URL we need to query the database
-    var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
-        userCity + "&units=imperial&appid=" + weatherAPIKey;
+// Grab the user input
+userCity = $("#your-city").val().trim();
+radius = $("#radius").val().trim();
 
 
-    // Here we run our AJAX call to the OpenWeatherMap API
-    $.ajax({
-        url: weatherURL,
-        method: "GET"
-    })
-        // We store all of the retrieved data inside of an object called "response"
-        .then(function (response) {
+// initialize the input values
+$("#your-city").val("");
+$("#radius").val("10");
 
-            // Log the queryURL
-            console.log("weatherURL: " + weatherURL);
+// This is our API key
+var weatherAPIKey = "166a433c57516f51dfab1f7edaed8413";
 
-            // Log the resulting object
-            console.log(response);
+// Here we are building the URL we need to query the database
+var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
+userCity + "&units=imperial&appid=" + weatherAPIKey;
 
 
+// Here we run our AJAX call to the OpenWeatherMap API
+$.ajax({
+url: weatherURL,
+method: "GET"
+})
+// We store all of the retrieved data inside of an object called "response"
+.then(function(response) {
+
+// Log the queryURL
+console.log("weatherURL: " + weatherURL);
+
+// Log the resulting object
+console.log(response);
 
 
-            // Clear absolutely everything stored in localStorage using localStorage.clear()
-            localStorage.clear();
-
-            // Store the userCity into localStorage using "localStorage.setItem"
-            localStorage.setItem("city", userCity);
 
 
-            console.log("userCity: " + userCity);
-            console.log("radius: " + radius);
+// Clear absolutely everything stored in localStorage using localStorage.clear()
+localStorage.clear();
 
-            // And display that city for the user using "localStorage.getItem"
-            // $(".jumbotron").text(localStorage.getItem("city"));
-
-            $(".jumbotron").html("<h1>" + response.name + "</h1><br><h3>Temperature (F): " + Math.round(response.main.temp) + "</h3><h3>Humidity (%): " + response.main.humidity + "</h3><h3>Wind Speed (m/s): " + Math.round(response.wind.speed) + "</h3><h3>Condition: " + response.weather[0].description + "</h3><h1><img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'></h1>");
+// Store the userCity into localStorage using "localStorage.setItem"
+localStorage.setItem("city", userCity);
 
 
-            // Log the data in the console as well
-            console.log("userCity: " + response.name);
-            console.log("Wind Speed: " + response.wind.speed);
-            console.log("Humidity: " + response.main.humidity);
-            console.log("Temperature (F): " + response.main.temp);
-            console.log("Details: " + response.weather[0].description);
-            console.log("Icon_Number: " + response.weather[0].icon);
-        });
+console.log("userCity: " + userCity);
+console.log("radius: " + radius);
 
-    var eventAPIKey = "8K4g8J4q2z2RFfZf";
+// And display that city for the user using "localStorage.getItem"
+// $(".jumbotron").text(localStorage.getItem("city"));
 
-    var eventURL = "https://api.eventful.com/rest/events/search?...&date=today&page_size=10&l=" + userCity + "&within=" + radius + "&units=miles&api_key=" + eventAPIKey;
+$(".jumbotron").html("<h2>" + response.name + "</h2><br><h4>Temperature: " + Math.round(response.main.temp) + " F </h4><h4>Humidity: " + response.main.humidity + " % </h4><h4>Wind Speed: " + Math.round(response.wind.speed) + " m/s </h4><h4>Condition: " + response.weather[0].description + "</h4><h4><img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'></h4>");
 
 
-    // Here we run our AJAX call to the Eventful API
-    $.ajax({
-        url: eventURL,
-        method: "GET"
-    })
-        // We store all of the retrieved data inside of an object called "response"
-        .then(function (response) {
+// Log the data in the console as well
+console.log("userCity: " + response.name);
+console.log("Wind Speed: " + response.wind.speed);
+console.log("Humidity: " + response.main.humidity);
+console.log("Temperature (F): " + response.main.temp);
+console.log("Details: " + response.weather[0].description);
+console.log("Icon_Number: " + response.weather[0].icon);
+});
 
-            // Log the queryURL
-            console.log("eventsURL: " + eventURL);
+var eventAPIKey = "8K4g8J4q2z2RFfZf";
 
-            // Log the resulting object
-            console.log(response);
+var eventsURL = "http://api.eventful.com/rest/events/search?...&date=today&page_size=10&location=" + userCity + "&within=" + radius + "&api_key=" + eventAPIKey;
 
-            $("#well-section").html("<h1>" + response.events.title + "</h1><br><h3>" + response.events.description + "</h3><h3>By " + response.events.venue_name + "</h3><h3>" + response.events.start_time + "</h3><h3> ~ " + response.events.stop_time + "</h3><h4>" + response.events.url);
 
-            //       // Log the data in the console as well
-            console.log("Title: " + response.events.title);
-            console.log("Description: " + response.events.description);
-            console.log("Venue: " + response.events.venue_name);
-            console.log("From: " + response.events.start_time);
-            console.log("To: " + response.events.stop_time);
-            console.log("Event URL: " + response.events.url);
+// Here we run our AJAX call to the Eventful API
+$.ajax({
+url: eventsURL,
+method: "GET"
+})
+// We store all of the retrieved data inside of an object called "response"
+.then(function(response) {
 
-        });
+// Log the queryURL
+console.log("eventsURL: " + eventsURL);
+
+// Log the resulting object
+console.log(response);
+
+$("#well-section").html("<h1>" + response.events.title + "</h1><h3>" + response.events.description + "</h3><h3>By " + response.events.venue_name + "</h3><h3>" + response.events.start_time + "</h3><h3> ~ " + response.events.stop_time + "</h3><h4>" + response.events.url);
+
+//       // Log the data in the console as well
+console.log("Title: " + response.events.title);
+console.log("Description: " + response.events.description);
+console.log("Venue: " + response.events.venue_name);
+console.log("From: " + response.events.start_time);
+console.log("To: " + response.events.stop_time);
+console.log("Event URL: " + response.events.url);
+
+  });
 
 });
 
