@@ -141,6 +141,7 @@ body {
   
   #weatherInfo {
     opacity: 0.6;
+    color: #000;
   }
   
   img {
