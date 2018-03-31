@@ -102,8 +102,8 @@ console.log("Icon_Number: " + response.weather[0].icon);
 });
 
 // Eventful api
-var eventAPIKey = "8K4g8J4q2z2RFfZf";
-var eventsURL = "http://api.eventful.com/json/events/search?date=today&page_size=10&location=" + userCity + "&within=" + radius + "&app_key=" + eventAPIKey;
+var eventAPPKey = "8K4g8J4q2z2RFfZf";
+var eventsURL = "http://api.eventful.com/json/events/search?date=today&page_size=10&location=" + userCity + "&within=" + radius + "&app_key=" + eventAPPKey;
 
 // Meetup Api
 // var eventAPIKey = "46151b4431f28d6e5f33668147529";
