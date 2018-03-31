@@ -101,10 +101,13 @@ console.log("Details: " + response.weather[0].description);
 console.log("Icon_Number: " + response.weather[0].icon);
 });
 
+// Eventful api
 var eventAPIKey = "8K4g8J4q2z2RFfZf";
+var eventsURL = "http://api.eventful.com/json/events/search?date=today&page_size=10&location=" + userCity + "&within=" + radius + "&app_key=" + eventAPIKey;
 
-var eventsURL = "http://api.eventful.com/json/events/search?date=today&page_size=10&location=" + userCity + "&within=" + radius + "&api_key=" + eventAPIKey;
-
+// Meetup Api
+// var eventAPIKey = "46151b4431f28d6e5f33668147529";
+// var eventsURL = "https://api.meetup.com1/find/groups2?zip=11211&radius=1&category=253&order=members4";
 
 // Here we run our AJAX call to the Eventful API
 $.ajax({
@@ -134,6 +137,8 @@ console.log("Event URL: " + response.events.url);
 
 });
 
+// Meetup API
+// APP key: 46151b4431f28d6e5f33668147529
 
 
 // Eventful API Authentication (api_key needed, but no OAuth needed; outdoor category exists!)
