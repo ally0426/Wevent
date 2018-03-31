@@ -131,7 +131,7 @@ $("#save-city").on("click", function (event) {
             // console.log("Event: " + responseJSON.events.event + " OR Event[0]: " + responseJSON.events.event[0]);
             const { event } = responseJSON.events;
 
-            console.log("*******")
+            console.log("*******");
             console.log("Event: ", event);
 
 
