@@ -137,7 +137,7 @@ $("#save-city").on("click", function (event) {
 
             for (var i = 0; i < event.length; i++) {
                 const venueAddress = event[i].venue_address ? event[i].venue_address : "No Address Available.";
-                const eventInfo = $("<div>").html("<div><h1>" + event[i].title + "</h1><br><h3>" + event[i].description + "</h3><br><h3>By " + event[i].venue_name + "</h3><br><h3>" + venueAddress + "</h3><br><h3>" + event[i].start_time + "</h3><br><h3>" + event[i].url + "</h3></div>");
+                const eventInfo = $("<div>").html("<div><h1>" + event[i].title + "</h1><br><h3>" + event[i].description + "</h3><br><h3>By " + event[i].venue_name + "</h3><br><h3>" + venueAddress + "</h3><br><h3>" + event[i].start_time + "</h3><br><h3>" + event[i].url + "</h3><br><br></div>");
                 $("#well-section").append(eventInfo);
             }
 
