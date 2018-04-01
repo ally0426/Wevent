@@ -139,7 +139,7 @@ $("#saveCity").on("click", function (event) {
                 console.log("results[0].dt_txt", results[0].dt_txt);
                 console.log("Temperature: ", Math.round(results[0].main.temp));
 
-                var weatherDiv = $("<div>").html("<div><p><strong>" + response.city.name + "</strong></p><br><p>Date: " + results[j].dt_txt + "</p><p>Temperature: " + Math.round(results[j].main.temp) + " ° F</p><p>Sky: " + results[j].weather[0].main + "</p><p><img src='http://openweathermap.org/img/w/" + results[j].weather[0].icon + ".png'></p></div><br>");
+                var weatherDiv = $("<div>").html("<div><p><strong>" + response.city.name + "</strong></p><br><p>Date: " + results[j].dt_txt + "</p><p>Temperature: " + Math.round(results[j].main.temp) + " ° F</p><p>Sky: " + results[j].weather[0].main + "</p><p><img src='http://openweathermap.org/img/w/" + results[j].weather[0].icon + ".png'></p></div>****************************<br>");
 
                 console.log("******************");
                 console.log("weatherInfo==>", weatherInfo);
@@ -172,7 +172,7 @@ $("#saveCity").on("click", function (event) {
             const description = event[i].description ? event[i].description : "No Description Available.";
             const venueAddress = event[i].venue_address ? event[i].venue_address : "No Address Available.";
 
-            const eventInfo = $("<div>").html("<div><p><strong>" + event[i].title + "</strong></p><p>" + description + "</p><p>By: " + event[i].venue_name + "</p><p>Where: " + venueAddress + "</p><p>Starting at: " + event[i].start_time + "</p></div><br>");
+            const eventInfo = $("<div>").html("<div><p><strong>" + event[i].title + "</strong></p><p>" + description + "</p><p>By: " + event[i].venue_name + "</p><p>Where: " + venueAddress + "</p><p>Starting at: " + event[i].start_time + "</p></div>**********************<br>");
             $("#well-section").append(eventInfo);
         }
 
