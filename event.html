@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="buttons">
+        <button id="event">Events</button>
+    </div>
+
+    <div id="description">
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $("#event").on("click", function () {
+
+
+            var eventAPPKey = "8K4g8J4q2z2RFfZf";
+            var userCity = "minneapolis";
+            var pageSize = 10;
+            var radius = 10;
+
+            var eventsURL = "http://api.eventful.com/json/events/search?date=today&page_size=10&location=" + userCity + "&within=" + radius + "&app_key=" + eventAPPKey;
+
+
+            $.ajax({
+                url: eventsURL,
+                method: "GET"
+            })
+                // We store all of the retrieved data inside of an object called "response"
+                .then(function (response) {
+                    var responseJSON = JSON.parse(response)
+
+                    console.log("eventsURL: ", eventsURL);
+
+                    const { event } = responseJSON.events;
+
+                    for (var i = 0; i < event.length; i++) {
+                        const description = event[i].description ? event[i].description : "No Description Available.";
+                        const venueAddress = event[i].venue_address ? event[i].venue_address : "No Address Available.";
+                        const eventInfo = $("<div>").html("<div><p><strong>" + event[i].title + "</strong></p><p>" + description + "</p><p>By: " + event[i].venue_name + "</p><p>Where: " + venueAddress + "</p><p>Starting at: " + event[i].start_time + "</p></div><br>");
+                        $("#description").append(eventInfo);
+                    }
+
+
+
+                });
+
+        });
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
