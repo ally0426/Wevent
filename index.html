@@ -1,308 +1,326 @@
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <!-- meta -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- handle insecure xmlhttprequest endpoint issue by using http instead of https -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Wevent: Weather And Event</title>
-    <!-- styles -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"> -->
-    <!-- firebase js -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script> -->
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--   Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lemon" rel="stylesheet">
-    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <meta charset="utf-8">
+  <title>Happning</title>
+   <!-- Bootswatch Styling for Improving the Aesthetics -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
+  
+<!--   Google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lemon" rel="stylesheet">
+  
+  <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ 
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+  
 </head>
+  
+<body>
+  
+  <nav class="orange lighten-1" role="navigation">
+  
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Happning</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#"><h5>Login</h5></a></li>
+        <li><a href="#"><h5>Register</h5></a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  
+  
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+   
+      <h1 class="header center orange-text"><strong>What's Happning near Me!</strong></h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Find the events you want!</h5>
+      </div>
+      <div class="row center">
+         <form role="form" class="form-inline">
+
+              <!-- Here we create the text box for capturing the search term-->
+              <div class="form-group">
+                <label for="location"></label>
+                <input class="form-control text-center" id="location" type="text" placeholder="city name, zip code" value="">
+              </div>
+       
+<!-- Here we capture the number of records that the user wants to retrieve  -->
+       <div class="form-group">
+         <label for="radius"><h5>Within</h5></label>
+                <select class="form-control" id="radius">
+                  <option value="5 mi">5 mi</option>
+                  <!-- Setting the option for 5 as default -->
+                  <option value="10 mi" selected>10 mi</option>
+                  <option value="20 mi">20 mi</option>  
+                </select>
+              </div>
+              
+              
+       <button class="btn btn-primary" id="findButton" value="Save" type="submit">Find</button>
+    </form>
+        
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+    <div id="well-section">
+          </div>
+  
+  
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Speeds up development</h5>
+
+            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User Experience Focused</h5>
+
+            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  
+<!--   footer area -->
+  <footer class="page-footer orange">
+    
+    <div class="container">
+      <div class="row">
+        <div class="col l3 s12">
+          <h4 class="white-text">Happning</h4>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+
+        <div class="col l3 s12">
+          <h4 class="white-text">Menu</h4>
+          <ul>
+            <li><a href="#!">About Us</a></li>
+                        <li><a href="#!">Contact</a></li>
+                        <li><a href="#!">Terms & Condition</a></li>
+                        <li><a href="#!">Privacy Policy</a></li>
+          </ul>
+        </div>
+        
+        <div class="col l3 s12">
+          <h4 class="white-text">Connect</h4>
+          <ul>
+            <li><a class="white-text" href="#!"><i class="fab fa-facebook fa-lg"></i></a></li>
+            <li><a class="white-text" href="#!"><i class="fab fa-twitter fa-lg"></i></a></li>
+            <li><a class="white-text" href="#!"><i class="fab fa-instagram fa-lg"></i></a></li>
+          </ul>
+        </div>
+        
+        <div class="col l3 s12">
+          <h4 class="white-text">Newsletter</h4>
+                <p>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Your email address">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                      </span>
+                    </div><!-- /input-group -->
+                 </p>
+        </div>
+        
+      </div>
+    </div>
+    <div class="footer-copyright text-center">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="#!">Happning</a>
+        <p>© 2018 Group 3. All rights reserved</p>
+      </div>
+    </div>
+    
+    
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
+
+
+
+
+
+<!-- 
+
 
 
 <body class="demo">
+  
+  <div class="container text-center">
+    
+     
+    
+    <h1 style="color: #fff;"><strong>Events</strong></h1>
+    
+    
+    <div id="weatherInfo" class="jumbotron">
 
-    <div class="container text-center">
+    </div>
+    
+    <!-- This row will handle all of the retrieved articles -->
+<!--     <div class="row">
+      <div class="col-sm-12">
+        <br> -->
 
-        <!------------- Navbar -------------->
-        <nav class="navbar navbar-inverse bs-dark">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                    aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Logo</a>
-            </div>
+        <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
+<!--         <div class="panel panel-primary"> -->
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explores
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Festivals</a>
-                            </li>
-                            <li>
-                                <a href="#">Concerts</a>
-                            </li>
-                            <li>
-                                <a href="#">Museums</a>
-                            </li>
-                            <li>
-                                <a href="#">Conferences</a>
-                            </li>
-                            <li>
-                                <a href="#">Parties</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-left form-horizontal" role="search">
-                    <div class="input-group">
-                        <input type="text" class="search-box" placeholder="Search">
-                        <button type="submit" class="btn">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </div>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Account
-                            <img src="http://placehold.it/150x150" class="img-circle" alt="Profile Image" />
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Profile</a>
-                            </li>
-                            <li>
-                                <a href="#">Inbox</a>
-                            </li>
-                            <li>
-                                <a href="#">Followers</a>
-                            </li>
-                            <li role="separator" class="divider"></li>
-                            <li>
-                                <a href="#">Settings</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+          <!-- Panel Heading for the retrieved articles box -->
+<!--           <div class="panel-heading">
+            <h2 class="panel-title">
+              <strong>
+                <i class="fa fa-table"></i> Today's Events</strong>
+            </h2>
+          </div> -->
 
-        <h1 style="color: #fff;">
-            <strong>Events</strong>
-        </h1>
-
-        <!-- Retrieved data will be dumped here -->
-
-        <form role="form" class="form-inline">
-
-            <!-- Here we create the text box for capturing the search term-->
-            <div class="form-group">
-                <label for="yourCity"></label>
-                <input class="form-control text-center" id="yourCity" type="text" placeholder="" value="">
-            </div>
-
-            <!-- Here we capture the number of records that the user wants to retrieve  -->
-            <div class="form-group">
-                <label style="color: #fff;" for="radius">Within (mi)</label>
-                <select class="form-control" id="radius">
-                    <option value="5">5</option>
-                    <!-- Setting the option for 5 as default -->
-                    <option value="10" selected>10</option>
-                    <option value="20">20</option>
-                </select>
-            </div>
-
-
-            <button class="btn btn-primary" id="saveCity" value="Save" type="submit">Submit</button>
-        </form>
-
-        <!--     <form>
-        <span id="input-city">
-          <input id="your-city" type="text" placeholder="Your City">
-          <button class="btn btn-default" id="save-city" value="Save" type="submit">Submit</button>
-        </span>
-      </form> -->
-
-
-        <!-- This row will handle all of the retrieved articles -->
-        <div class="row">
-            <div class="col-sm-12">
-                <br>
-
-                <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
-                <div class="panel panel-primary">
-
-                    <!-- Panel Heading for the retrieved articles box -->
-                    <div class="panel-heading">
-                        <h2 class="panel-title">
-                            <strong>
-                                <i class="fa fa-table"></i> Weather & Events</strong>
-                        </h2>
-                    </div>
-
-                    <!-- This main panel will hold each of the resulting articles -->
-                    <div class="panel-body jumbotron">
-                        <div id="weatherInfo"></div>
-                        <div id="well-section"></div>
-                        <div id="map"></div>
-                    </div>
-
-                </div>
-            </div>
+          <!-- This main panel will hold each of the resulting articles -->
+<!--           <div class="panel-body" id="well-section">
+          </div>
         </div>
+      </div>
+    </div>
+ -->
+    <!-- Footer Region -->
+<!--     <div class="row">
+      <div class="col-sm-12"> -->
 
-        <!-- Footer Region -->
-        <div class="row">
-            <div class="col-sm-12">
-
-                <!-- Line Break followed by closing -->
-                <hr>
-
-                <!--         <h5 class="text-center">
-            <small>Made with lots of 
-              <i class="fa fa-heart"> by Group 3</i>
-            </small>
-          </h5>
-   -->
-
-
-
-
-
+        <!-- Line Break followed by closing -->
+    
+        
+<!--         <h5 class="text-center">
+          <small>Made with lots of 
+            <i class="fa fa-heart"> by Group 3</i>
+          </small>
+        </h5>
+ -->
+        
+          
+        
+        
+        
+      </div>
+    </div>
+    
+     <!----------- Footer ------------>
+<!--     <footer class="footer-bs">
+<!--         <div class="row">
+        	<div class="col-md-3 footer-brand animated fadeInLeft">
+            	<h3>Logo</h3><br>
+                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+                <p>© 2017 Group 3. All rights reserved</p>
             </div>
-        </div>
-
-        <!----------- Footer ------------>
-        <footer class="footer-bs">
-            <div class="row">
-                <div class="col-md-3 footer-brand animated fadeInLeft">
-                    <h3>Logo</h3>
-                    <br>
-                    <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur
-                        vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
-                    <br>
-                    <p>© 2017 Group 3.</p>
-                    <p>All rights reserved</p>
-                </div>
-                <div class="col-md-4 footer-nav animated fadeInUp">
-                    <h3>Menu</h3>
-                    <br>
-                    <div class="col-md-6">
-                        <ul class="pages">
-                            <li>
-                                <a href="#">Festivals</a>
-                            </li>
-                            <li>
-                                <a href="#">Concerts</a>
-                            </li>
-                            <li>
-                                <a href="#">Museums</a>
-                            </li>
-                            <li>
-                                <a href="#">Conferences</a>
-                            </li>
-                            <li>
-                                <a href="#">Parties</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="list">
-                            <li>
-                                <a href="#">About Us</a>
-                            </li>
-                            <li>
-                                <a href="#">Contact</a>
-                            </li>
-                            <li>
-                                <a href="#">Terms & Condition</a>
-                            </li>
-                            <li>
-                                <a href="#">Privacy Policy</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-2 footer-social animated fadeInDown">
-                    <h3>Follow Us</h3>
-                    <br>
-                    <ul>
-                        <li>
-                            <a href="#">Facebook</a>
-                        </li>
-                        <li>
-                            <a href="#">Twitter</a>
-                        </li>
-                        <li>
-                            <a href="#">Instagram</a>
-                        </li>
-                        <li>
-                            <a href="#">RSS</a>
-                        </li>
+        	<div class="col-md-4 footer-nav animated fadeInUp">
+            	<h3>Menu</h3><br>
+            	<div class="col-md-6">
+                    <ul class="pages">
+                        <li><a href="#">Festivals</a></li>
+                        <li><a href="#">Concerts</a></li>
+                        <li><a href="#">Museums</a></li>
+                        <li><a href="#">Conferences</a></li>
+                        <li><a href="#">Parties</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 footer-ns animated fadeInRight">
-                    <h3>Newsletter</h3>
-                    <br>
-                    <h6>Get the latest news!</h6>
-                    <br>
-                    <br>
-                    <p>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Your email address">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <span class="glyphicon glyphicon-envelope"></span>
-                                </button>
-                            </span>
-                        </div>
-                        <!-- /input-group -->
-                    </p>
+            	<div class="col-md-6">
+                    <ul class="list">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-        <section style="text-align:center; margin:10px auto;">
-            <p style="color: #fff;">Designed by Group 3</p>
-        </section>
+        	<div class="col-md-2 footer-social animated fadeInDown">
+            	<h3>Follow Us</h3><br>
+            	<ul>
+                	<li><a href="#">Facebook</a></li>
+                	<li><a href="#">Twitter</a></li>
+                	<li><a href="#">Instagram</a></li> -->
+<!--                 	<li><a href="#">RSS</a></li>
+                </ul>
+            </div>
+        	<div class="col-md-3 footer-ns animated fadeInRight">
+            	<h3>Newsletter</h3>
+                <h6>Get the latest news!</h6><br>
+                <p>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Your email address">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                      </span>
+                    </div> -->
+<!--                  </p>
+            </div>
+        </div>
+    </footer>
+    <section style="text-align:center; margin:10px auto;"><p style="color: #fff;">Designed by Group 3</p></section> -->
+     
+    
+     
 
-
-
-
-    </div>
-
-
-
-    </div>
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2LsoTIa3Ks6NZrDTbRFhywrx5EhD_2ns&callback=initMap"> -->
-    </script>
-    <script src="./assets/javascript/index.js"></script>
-
+    
+  </div>
+    
+    
+    
+  </div>
+  
+  
+ 
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--   fireworks js -->
+<!--   <script src="jquery.fireworks.js"></script> -->
+  
+<!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    
+  <!-- Code to the JavaScript File -->
+<!--   <script src="index.js"></script> -->
+  
 </body>
-
-
-</html>

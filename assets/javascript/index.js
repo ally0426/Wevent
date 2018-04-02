@@ -17,7 +17,7 @@ $.ajax({
     dataType: "jsonp",
     success: function (location) {
 
-        $('#yourCity').val(location.city);
+        $('#location').val(location.city);
         console.log("location.city: " + location.city);
     }
 });
@@ -26,15 +26,15 @@ $.ajax({
 
 // var userCity ="";
 
-$("#yourCity").on("click", function () {
-    $("#yourCity").val("");
+$("#findButton").on("click", function () {
+    $("#location").val("");
 });
 
 // By default (upon load) show the name stored in localStorage using "localStorage.getItem"
 // $(".jumbotron").text(localStorage.getItem("city"));
 
 // When users click "save-name"
-$("#saveCity").on("click", function (event) {
+$("#findButton").on("click", function (event) {
     // This line prevents the page from refreshing when a user hits "enter".
     event.preventDefault();
 
@@ -43,12 +43,12 @@ $("#saveCity").on("click", function (event) {
     // $(".jumbotron").html("");
 
     // Grab the user input
-    var userCity = $("#yourCity").val().trim();
+    var userCity = $("#location").val().trim();
     var radius = $("#radius").val().trim();
 
 
     // initialize the input values
-    $("#yourCity").val("");
+    $("#location").val("");
     $("#radius").val("10");
 
     // This is our API key
