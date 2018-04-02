@@ -90,39 +90,6 @@ $("#findButton").on("click", function (event) {
             // $(".jumbotron").text(localStorage.getItem("city"));
 
 
-            // var results = response.list;
-
-            // for (var i = 0; i < results.length; i++) {
-
-            //     var city = response.city.name
-            //     var date = results[i].dt_txt;
-            //     var temp = Math.floor(results[i].main.temp);
-            //     var sky = results[i].weather[0].main;
-            //     var image = results[i].weather[0].icon
-
-            //     console.log(city);
-            //     console.log(date);
-            //     console.log(temp + "° F");
-            //     console.log(sky);
-            //     console.log(image);
-
-            //     var weatherDiv = $("<div>");
-            //     var weatherImage = $("<img>");
-            //     var weatherCity = $("<p>").text(city);
-            //     var weatherDay = $("<p>").text("Date: " + date);
-            //     var weatherSky = $("<p>").text("Sky: " + sky)
-            //     var weatherTemp = $("<p>").text("Temperature: " + temp + "° F");
-
-            //     weatherImage.attr("src", "http://openweathermap.org/img/w/" + image + ".png")
-
-            //     $(".jumbotron").append(weatherDiv);
-            //     weatherDiv.append(weatherCity);
-            //     weatherDiv.append(weatherDay);
-            //     weatherDiv.append(weatherSky);
-            //     weatherDiv.append(weatherTemp);
-            //     weatherDiv.append(weatherImage);
-            // }
-
             console.log("******************");
             console.log("response", response);
 
@@ -224,5 +191,39 @@ $("#findButton").on("click", function (event) {
 // Anonymous access OAuth token: PF5UH4TWVTSWZ7ZEUJAI
 
 
+// Version 2 for weatherInfo
+
+            // var results = response.list;
+
+            // for (var i = 0; i < results.length; i++) {
+
+            //     var city = response.city.name
+            //     var date = results[i].dt_txt;
+            //     var temp = Math.floor(results[i].main.temp);
+            //     var sky = results[i].weather[0].main;
+            //     var image = results[i].weather[0].icon
+
+            //     console.log(city);
+            //     console.log(date);
+            //     console.log(temp + "° F");
+            //     console.log(sky);
+            //     console.log(image);
+
+            //     var weatherDiv = $("<div>");
+            //     var weatherImage = $("<img>");
+            //     var weatherCity = $("<p>").text(city);
+            //     var weatherDay = $("<p>").text("Date: " + date);
+            //     var weatherSky = $("<p>").text("Sky: " + sky)
+            //     var weatherTemp = $("<p>").text("Temperature: " + temp + "° F");
+
+            //     weatherImage.attr("src", "http://openweathermap.org/img/w/" + image + ".png")
+
+            //     $(".jumbotron").append(weatherDiv);
+            //     weatherDiv.append(weatherCity);
+            //     weatherDiv.append(weatherDay);
+            //     weatherDiv.append(weatherSky);
+            //     weatherDiv.append(weatherTemp);
+            //     weatherDiv.append(weatherImage);
+            // }
 
 
