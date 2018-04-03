@@ -26,9 +26,9 @@ $.ajax({
 
 // var userCity ="";
 
-$("#findButton").on("click", function () {
-    $("#location").val("");
-});
+// $("#findButton").on("click", function () {
+//     $("#location").val("");
+// });
 
 // By default (upon load) show the name stored in localStorage using "localStorage.getItem"
 // $(".jumbotron").text(localStorage.getItem("city"));
@@ -44,8 +44,9 @@ $("#findButton").on("click", function (event) {
 
     // Grab the user input
     var userCity = $("#location").val().trim();
-    var radius = $("#radius").val().trim();
+    // var radius = $("#radius").val().trim();
 
+    console.log("userCity:", userCity);
 
     // initialize the input values
     $("#location").val("");
@@ -58,7 +59,7 @@ $("#findButton").on("click", function (event) {
     var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?q=" +
         userCity + "&units=imperial&appid=" + weatherAPIKey;
 
-
+console.log(weatherURL)
     // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
         url: weatherURL,
@@ -66,7 +67,7 @@ $("#findButton").on("click", function (event) {
     })
         // We store all of the retrieved data inside of an object called "response"
         .then(function (response) {
-
+        
             // Log the queryURL
             // console.log("weatherURL: ", weatherURL);
 
@@ -93,29 +94,59 @@ $("#findButton").on("click", function (event) {
             console.log("******************");
             console.log("response", response);
 
-            var results = response.list;
 
-            console.log("******************");
-            console.log("results: response.list", response.list);
 
-            console.log("******************");
-            console.log("response.city.name", response.city.name);
+
+            // var results = response.list;
+
+            // for (var i = 0; i < results.length; i++) {
+
+            //     var city = response.city.name
+            //     var date = results[i].dt_txt;
+            //     var temp = Math.floor(results[i].main.temp);
+            //     var sky = results[i].weather[0].main;
+            //     var image = results[i].weather[0].icon
+
+            //     console.log(city);
+            //     console.log(date);
+            //     console.log(temp + "° F");
+            //     console.log(sky);
+            //     console.log(image);
+
+            //     var weatherDiv = $("<div>");
+            //     var weatherImage = $("<img>");
+            //     var weatherCity = $("<p>").text(city);
+            //     var weatherDay = $("<p>").text("Date: " + date);
+            //     var weatherSky = $("<p>").text("Sky: " + sky)
+            //     var weatherTemp = $("<p>").text("Temperature: " + temp + "° F");
+
+            //     weatherImage.attr("src", "http://openweathermap.org/img/w/" + image + ".png")
+
+            //     $("#weatherInfo").append(weatherDiv);
+            //     weatherDiv.append(weatherCity);
+            //     weatherDiv.append(weatherDay);
+            //     weatherDiv.append(weatherSky);
+            //     weatherDiv.append(weatherTemp);
+            //     weatherDiv.append(weatherImage);
+            // }
+console.log("LOOK HERE!!!")
+console.log(response.list)
+console.log("0000000000000000000000000000")
+            const results = response.list;
 
             for (var j = 0; j < results.length; j++) {
                 console.log("******************");
                 console.log("results[0].dt_txt", results[0].dt_txt);
                 console.log("Temperature: ", Math.round(results[0].main.temp));
 
-                var weatherDiv = $("<div>").html("<div><p><strong>" + response.city.name + "</strong></p><br><p>Date: " + results[j].dt_txt + "</p><p>Temperature: " + Math.round(results[j].main.temp) + " ° F</p><p>Sky: " + results[j].weather[0].main + "</p><p><img src='http://openweathermap.org/img/w/" + results[j].weather[0].icon + ".png'></p></div>****************************<br>");
+                const weatherDiv = $("<div>").html("<div><p><strong>" + response.city.name + "</strong></p><br><p>Date: " + results[j].dt_txt + "</p><p>Temperature: " + Math.round(results[j].main.temp) + " ° F</p><p>Sky: " + results[j].weather[0].main + "</p><p><img src='http://openweathermap.org/img/w/" + results[j].weather[0].icon + ".png'></p></div>****************************<br>");
 
                 console.log("******************");
-                console.log("weatherInfo==>", weatherInfo);
+                console.log("weatherDiv: ", weatherDiv);
 
                 $("#weatherInfo").append(weatherDiv);
 
             }
-
-            // $(".jumbotron").html("<h2>" + response.name + "</h2><br><h4>Temperature: " + Math.round(response.main.temp) + " F </h4><h4>Humidity: " + response.main.humidity + " % </h4><h4>Wind Speed: " + Math.round(response.wind.speed) + " m/s </h4><h4>Condition: " + response.weather[0].description + "</h4><h4><img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png'></h4>");
 
         });
 
