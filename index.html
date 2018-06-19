@@ -1,6 +1,10 @@
 <head>
   <meta charset="utf-8">
   <title>Happning</title>
+
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
   <!-- Bootswatch Styling for Improving the Aesthetics -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
 
@@ -9,6 +13,10 @@
 
   <!-- Font Awesome CSS Icons (For cool glyphicons) -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- datepicker css -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css"> -->
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -86,8 +94,15 @@
             </select>
           </div>
 
+          <div class="input-field col s4" style="color: #000;">
+            <label for="from">From</label>
+            <input type="text" id="from" name="from">
+            <label for="to">to</label>
+            <input type="text" id="to" name="to">
+          </div>
 
-          <button class="btn btn-default orange" id="findButton" value="Save" type="submit">Find</button>
+
+          <button class="btn btn-default orange" id="search" value="Save" type="submit">Find</button>
         </form>
 
       </div>
@@ -102,8 +117,23 @@
     <div class="section">
       <div class="row">
         <div class="col s12">
-          <div id="weatherInfo"></div>
-          <div id="well-section"></div>
+          <div id="weatherInfo" class="text-center"></div>
+          <table class="container">
+            <thead>
+              <tr style="color: #000;">
+                <td>Title</td>
+                <td>Description</td>
+                <td>By</td>
+                <td>Place</td>
+                <td>Time</td>
+              </tr>
+            </thead>
+            <tbody id="well-section">
+
+            </tbody>
+          </table>
+
+          <!-- <div id="well-section"></div> -->
         </div>
       </div>
     </div>
@@ -135,7 +165,7 @@
             </h2>
             <h5 class="center" style="color: #000;">User Experience Focused!</h5>
 
-            <p class="light"style="color: #000;" >By utilizing elements and principles of Material Design, we were able to create a framework that incorporates
+            <p class="light" style="color: #000;">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates
               components and animations that provide more feedback to users. Additionally, a single underlying responsive
               system across all platforms allow for a more unified user experience.</p>
           </div>
@@ -248,137 +278,26 @@
 
   <!--  Scripts-->
 
- 
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--   fireworks js -->
-    <!--   <script src="jquery.fireworks.js"></script> -->
+  <!--   fireworks js -->
+  <!--   <script src="jquery.fireworks.js"></script> -->
 
-    <!-- Compiled and minified JavaScript -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> -->
+  <!-- Compiled and minified JavaScript -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> -->
 
-    <!-- Code to the JavaScript File -->
+  <!-- bootstrap js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- moment js -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+  <!-- datepicker js -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- Code to the JavaScript File -->
   <script src="./assets/javascript/index.js"></script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-<!-- <body class="demo">
-  
-  <div class="container text-center">
-    
-     
-    
-    <h1 style="color: #fff;"><strong>Events</strong></h1>
-    
-    
-    <div id="weatherInfo" class="jumbotron">
-
-    </div>
-    
-    
-<div class="row">
-  <div class="col-sm-12">
-    <br> -->
-
-    <!-- This panel will initially be made up of a panel and wells for each of the articles retrieved -->
-    <!--         <div class="panel panel-primary"> -->
-
-    <!-- Panel Heading for the retrieved articles box -->
-    <!--           <div class="panel-heading">
-            <h2 class="panel-title">
-              <strong>
-                <i class="fa fa-table"></i> Today's Events</strong>
-            </h2>
-          </div> -->
-
-    <!-- This main panel will hold each of the resulting articles -->
-    <!--           <div class="panel-body" id="well-section">
-          </div>
-        </div>
-      </div>
-    </div>
- -->
-    <!-- Footer Region -->
-    <!--     <div class="row">
-      <div class="col-sm-12"> -->
-
-    <!-- Line Break followed by closing -->
-
-
-    <!--         <h5 class="text-center">
-          <small>Made with lots of 
-            <i class="fa fa-heart"> by Group 3</i>
-          </small>
-        </h5>
- -->
-
-
-
-
-    <!----------- Footer ------------>
-    <!--     <footer class="footer-bs">
-<!--         <div class="row">
-        	<div class="col-md-3 footer-brand animated fadeInLeft">
-            	<h3>Logo</h3><br>
-                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
-                <p>© 2017 Group 3. All rights reserved</p>
-            </div>
-        	<div class="col-md-4 footer-nav animated fadeInUp">
-            	<h3>Menu</h3><br>
-            	<div class="col-md-6">
-                    <ul class="pages">
-                        <li><a href="#">Festivals</a></li>
-                        <li><a href="#">Concerts</a></li>
-                        <li><a href="#">Museums</a></li>
-                        <li><a href="#">Conferences</a></li>
-                        <li><a href="#">Parties</a></li>
-                    </ul>
-                </div>
-            	<div class="col-md-6">
-                    <ul class="list">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-        	<div class="col-md-2 footer-social animated fadeInDown">
-            	<h3>Follow Us</h3><br>
-            	<ul>
-                	<li><a href="#">Facebook</a></li>
-                	<li><a href="#">Twitter</a></li>
-                	<li><a href="#">Instagram</a></li> -->
-    <!--                 	<li><a href="#">RSS</a></li>
-                </ul>
-            </div>
-        	<div class="col-md-3 footer-ns animated fadeInRight">
-            	<h3>Newsletter</h3>
-                <h6>Get the latest news!</h6><br>
-                <p>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Your email address">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
-                      </span>
-                    </div> -->
-    <!--                  </p>
-            </div>
-        </div>
-    </footer>
-    <section style="text-align:center; margin:10px auto;"><p style="color: #fff;">Designed by Group 3</p></section> -->
-
-
-
-
-
-  
